@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&display=swap');
+
+#header{
+    background: url('../img/outdoor-dining-1846137_1280.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#header .header__fondo{
+    -webkit-backdrop-filter:blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(243, 243, 243, 0,1);
+}
+
+#header .header__title{
+    font-family: 'Bungee Inline', cursive;
+    font-size: 40px;
+    font-weight: lighter;
+    padding: 20px 0;
+}
+
+.header__title{
+    display: block;
+    text-align: center;
+}
+
+.header__title span{
+    display: inline-block;
+}
+
+/*--- TEXTO CURVO ---*/
+
+.header__title > span:nth-child(1){
+    -webkit-transform: translateX(-1px) translateY(22px) rotate(-12deg);
+    transform: translateX(-1px) translateY(22px) rotate(-12deg);
+}
+
+.header__title > span:nth-child(2){
+    -webkit-transform: translateX(-1px) translateY(13px) rotate(-9deg);
+    transform: translateX(-1px) translateY(13px) rotate(-9deg);
+}
+
+.header__title > span:nth-child(3){
+    -webkit-transform: translateX(-1px) translateY(8px) rotate(-4deg);
+    transform: translateX(-1px) translateY(8px) rotate(-4deg);
+}
+
+.header__title > span:nth-child(4){
+    -webkit-transform: translateX(-1px) translateY(4px) rotate(-2deg);
+    transform: translateX(-1px) translateY(4px) rotate(-2deg);
+}
+
+.header__title > span:nth-child(6){
+    -webkit-transform: translateX(-1px) translateY(4px);
+    transform: translateX(-1px) translateY(4px) ;
+}
+
+.header__title > span:nth-child(7){
+    -webkit-transform: translateX(-1px) translateY(4px) rotate(2deg);
+    transform: translateX(-1px) translateY(4px) rotate(2deg);
+}
+
+.header__title > span:nth-child(8){
+    -webkit-transform: translateX(-1px) translateY(8px) rotate(4deg);
+    transform: translateX(-1px) translateY(8px) rotate(4deg);
+}
+
+.header__title > span:nth-child(9){
+    -webkit-transform: translateX(-1px) translateY(13px) rotate(9deg);
+    transform: translateX(-1px) translateY(13px) rotate(9deg);
+}
+
+.header__title > span:nth-child(10){
+    -webkit-transform: translateX(-1px) translateY(22px) rotate(12deg);
+    transform: translateX(-1px) translateY(22px) rotate(12deg);
+}
+
+.header__paragraph{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__paragraph p{
+    margin: 0;
+    padding: 0 5px;
+}
+
+.header__paragraph div{
+    width: 30px;
+    height: 1px;
+    background-color: #fff;
+}
+
+
+#nosotros{
+    background: url('../img/city-4298285_1280.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#nosotros .nosotros__fondo{
+    background-color: rgba(255, 255, 255, 0.850);
+}
+
+#nosotros .nosotros__hr{
+    border-top: 1px solid #663300;
+    border-bottom: 1px solid #663300;
+    width: 100%;
+    height: 4px;
+}
+
+#separador{
+    background: url('../img/audience-1853662_640.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 150px;
+}
+
+#separador .separador__fondo{
+    background-color: #1f1000ad;
+    width: 100%;
+    height: 100%;
+}
+
+#separador .separador__imgs img{
+    border: #a1601f 4px solid;
+}
+
+#menu .menu__card__title__style{
+    width: 80%;
+    height: 2px;
+    background-color: #663300;
+}
+
+#menu .menu__card{
+    opacity: 0;
+    display: none;
+    transition: all 1s;
+}
+
+#menu .menu__card--show{
+    opacity: 1;
+    display: block;
+}
+
