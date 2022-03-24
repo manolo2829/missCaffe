@@ -2,51 +2,75 @@ const comida = [
     {
         category: 'menu__cafes',
         img: './img/coffee-geaea58a4f_640.jpg',
-        title: 'Caffe cup'
+        title: 'Caffe cup',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__cafes',
         img: './img/coffee-watercolor-g299b9b592_640.jpg',
-        title: 'Caffe cup2'
+        title: 'Caffe cup2',
+        price: '$110',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__cafes',
         img: './img/coffee-geaea58a4f_640.jpg',
-        title: 'Caffe cup3'
+        title: 'Caffe cup3',
+        price: '$100',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__cafes',
         img: './img/coffee-geaea58a4f_640.jpg',
-        title: 'Caffe cup4'
+        title: 'Caffe cup4',
+        price: '$150',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__cafes',
         img: './img/coffee-watercolor-g299b9b592_640.jpg',
-        title: 'Caffe cup5'
+        title: 'Caffe cup5',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__jugos',
         img: './img/fresh-orange-juice-g4be5f11f0_640.jpg',
-        title: 'jugo1'
+        title: 'jugo1',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__jugos',
         img: './img/fresh-orange-juice-g4be5f11f0_640.jpg',
-        title: 'jugo2'
+        title: 'jugo2',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__jugos',
         img: './img/fresh-orange-juice-g4be5f11f0_640.jpg',
-        title: 'jugo3'
+        title: 'jugo3',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__tortas',
         img: './img/cake-ge2c9b6ada_640.jpg',
-        title: 'torta1'
+        title: 'torta1',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__tortas',
         img: './img/red-velvet-cake-g3317d1d8a_640.jpg',
-        title: 'torta2'
+        title: 'torta2',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__promos',
         img: './img/toast-g004a71154_640.jpg',
-        title: 'promo'
+        title: 'promo',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     },{
         category: 'menu__promos',
         img: './img/breakfast-g20c02774c_640.jpg',
-        title: 'promo2'
+        title: 'promo2',
+        price: '$120',
+        description: 'La especialidad de la casa, con un leve aroma a hogar'
     }
 ]
 
@@ -67,7 +91,45 @@ let limit = 7;
 
 let category = 'todos'
 
+
+// MAPAS
+
+const mapasCard = document.querySelectorAll('.mapas__card')
+const mapasContainer = document.querySelector('.mapas__cards')
+const buttonBarraca = document.querySelector('#mapas__barraca')
+const buttonPalmares = document.querySelector('#mapas__palmares')
+const buttonChacras = document.querySelector('#mapas__chacras')
+
+const mapasBarraca = document.querySelector('#barraca')
+const mapasPalmares = document.querySelector('#palmares')
+const mapasChacras = document.querySelector('#chacras')
+
+buttonBarraca.addEventListener('click', () => {
+    cambiarMapa(mapasBarraca)
+})
+
+buttonPalmares.addEventListener('click', () => {
+    cambiarMapa(mapasPalmares)
+})
+
+buttonChacras.addEventListener('click', () => {
+    cambiarMapa(mapasChacras)
+})
+
+
+
 // FUNCIONES
+
+function cambiarMapa(name){    
+    removerMapa()
+    name.classList.add('mapas__card--show')
+}
+
+function removerMapa(){
+    for(i=0;i<mapasCard.length;i++){
+        mapasCard[i].classList.remove('mapas__card--show')
+    }
+}
 
 cafeButoon.addEventListener('click', () =>{
     filtro('menu__cafes')
@@ -153,7 +215,7 @@ function createCard(card){
     const cardBackText = document.createElement('p')
     cardBackText.classList.add('text-center')
     cardBackText.classList.add('text-light')
-    cardBackText.textContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, velitsadasdasdasdasdasdas.'
+    cardBackText.textContent = card.description
     cardBack.appendChild(cardBackText)
 
     const cardImgContainer = document.createElement('div')
@@ -196,7 +258,7 @@ function createCard(card){
     const price = document.createElement('p')
     price.classList.add('w-100')
     price.classList.add('text-center')
-    price.textContent = '100$'
+    price.textContent = card.price
 
     cardImgContainer.appendChild(cardImg)
 
@@ -216,53 +278,6 @@ function createCard(card){
     cardContainer.appendChild(cardBack)
 
     menuContainer.append(cardContainer)
-
-
-    
-
-    
-    // const cardContainer = document.createElement('div')
-    // cardContainer.classList.add('col-sm-12')
-    // cardContainer.classList.add('col-md-6')
-    // cardContainer.classList.add('col-lg-3')
-
-
-    // const cardImg = new Image()
-    // cardImg.classList.add('w-100')
-    // cardImg.classList.add('rounded')
-    // cardImg.classList.add('menu__card__img')
-    // cardImg.src = card.img
-
-    // const cardBody = document.createElement('div')
-    // cardBody.classList.add('row')
-
-    // const cardTitle = document.createElement('h4')
-    // cardTitle.classList.add('w-100')
-    // cardTitle.classList.add('text-center')
-    // cardTitle.textContent = card.title
-
-    // const cardTitleContainer = document.createElement('div')
-    // cardTitleContainer.classList.add('col-5')
-
-    // const cardDiv = document.createElement('div')
-    // cardDiv.classList.add('col')
-
-    // const cardDiv2 = document.createElement('div')
-    // cardDiv2.classList.add('col')
-
-    // const cardHr = document.createElement('hr')
-    // const cardHr2 = document.createElement('hr')
-
-    // cardDiv2.appendChild(cardHr2)
-    // cardDiv.appendChild(cardHr)
-    // cardBody.appendChild(cardDiv)
-    // cardTitleContainer.appendChild(cardTitle)
-    // cardBody.appendChild(cardTitleContainer)
-    // cardBody.appendChild(cardDiv2)
-    // cardContainer.appendChild(cardImg)
-    // cardContainer.appendChild(cardBody)
-
-    // menuContainer.appendChild(cardContainer)
 
 }
 

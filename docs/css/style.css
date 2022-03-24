@@ -105,7 +105,7 @@
     background-color: rgba(255, 255, 255, 0.850);
 }
 
-#nosotros .nosotros__hr{
+.title__hr{
     border-top: 1px solid #663300;
     border-bottom: 1px solid #663300;
     width: 100%;
@@ -177,4 +177,86 @@
 
 #menu .menu__card__container:hover .menu__card__back{
     transform: perspective(500px) rotateY(360deg);
+}
+
+#servicios{
+    background-image: url('../img/flowers-6914196_1280.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#servicios .servicios__fondo{
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter:blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: hsla(31, 100%, 6%, 0.651);
+}
+
+.title2__hr{
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    width: 100%;
+    height: 4px;
+}
+
+#mapas .mapas__cards{
+    display: grid;
+    grid-template-columns: repeat(3, 100%);
+    overflow: hidden;
+    padding-top: 50px;
+}
+
+#mapas .mapas__cards .mapas__card--show{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+#mapas .mapas__menu{
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mapas .mapas__menu .mapas__menu__item{
+    list-style: none;
+    padding: 0 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #663300;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mapas .mapas__menu .mapas__menu__item:hover{
+    background-color: #663300;
+    color: #fff;
+}
+
+
+#footer .footer__list{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#footer .footer__list li{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    color: #fff;
+}
+
+#footer .footer__list li i{
+    margin: 0;
 }
