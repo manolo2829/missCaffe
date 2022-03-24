@@ -50,6 +50,8 @@ const comida = [
     }
 ]
 
+let comidaFiltrada = comida
+
 const menuContainer = document.querySelector('.menu__container')
 const cafeButoon = document.querySelector('#menu__cafes');
 const tortasButton = document.querySelector('#menu__tortas');
@@ -80,8 +82,18 @@ promosButton.addEventListener('click', () =>{
     filtro('menu__promos')
 })
 todosButton.addEventListener('click', () =>{
+    comidaFiltrada = comida
+    removeChildNodes(menuContainer)
     generatorCards(offset, limit)
 })
+
+function filtro(category){
+    removeChildNodes(menuContainer)
+    comidaFiltrada = comida.filter( item => item.category === category).map( item => {
+        createCard(comida[comida.indexOf(item)])
+    })
+}
+
 
 previous.addEventListener('click', () => {
     if (offset != 0) {
@@ -93,7 +105,7 @@ previous.addEventListener('click', () => {
 });
 
 next.addEventListener('click', () => {
-    if (offset != comida.length - 8){
+    if (offset <= comidaFiltrada.length - 8){
         offset += 8;
         removeChildNodes(menuContainer);
         generatorCards(offset, limit)
@@ -102,12 +114,7 @@ next.addEventListener('click', () => {
 
 
 
-function filtro(category){
-    removeChildNodes(menuContainer)
-    comida.filter( item => item.category === category).map( item => {
-        createCard(comida[comida.indexOf(item)])
-    })
-}
+
 
 function generatorCard(id) {
     createCard(comida[id])
@@ -120,47 +127,142 @@ function generatorCards(offset, limit) {
 }
 
 function createCard(card){
+
     const cardContainer = document.createElement('div')
+    cardContainer.classList.add('menu__card__container')
     cardContainer.classList.add('col-sm-12')
     cardContainer.classList.add('col-md-6')
     cardContainer.classList.add('col-lg-3')
 
+    const cardFront = document.createElement('div')
+    cardFront.classList.add('menu__card__front')
+    cardFront.classList.add('menu__card__div')
+
+
+
+    const cardBack = document.createElement('div')
+    cardBack.classList.add('menu__card__back')
+    cardBack.classList.add('menu__card__div')
+    cardBack.classList.add('mx-1')
+    cardBack.classList.add('my-3')
+
+
+
+
+
+    const cardBackText = document.createElement('p')
+    cardBackText.classList.add('text-center')
+    cardBackText.classList.add('text-light')
+    cardBackText.textContent = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, velitsadasdasdasdasdasdas.'
+    cardBack.appendChild(cardBackText)
+
+    const cardImgContainer = document.createElement('div')
+    cardImgContainer.classList.add('row')
 
     const cardImg = new Image()
     cardImg.classList.add('w-100')
     cardImg.classList.add('rounded')
+    cardImg.classList.add('col-12')
+    cardImg.classList.add('menu__card__img')
     cardImg.src = card.img
 
     const cardBody = document.createElement('div')
-    cardBody.classList.add('row')
-
-    const cardTitle = document.createElement('h4')
-    cardTitle.classList.add('w-100')
-    cardTitle.classList.add('text-center')
-    cardTitle.textContent = card.title
+    cardBody.classList.add('w-100')
 
     const cardTitleContainer = document.createElement('div')
-    cardTitleContainer.classList.add('col-5')
+    cardTitleContainer.classList.add('row')
+    cardTitleContainer.classList.add('align-items-center')
+    cardTitleContainer.classList.add('py-2')
 
-    const cardDiv = document.createElement('div')
-    cardDiv.classList.add('col')
+    
 
-    const cardDiv2 = document.createElement('div')
-    cardDiv2.classList.add('col')
+    const cardTitle = document.createElement('h4')
+    cardTitle.classList.add('text-center')
+    cardTitle.classList.add('col-6')
+    cardTitle.textContent = card.title
 
-    const cardHr = document.createElement('hr')
-    const cardHr2 = document.createElement('hr')
+    const hrContainer = document.createElement('div')
+    const hr = document.createElement('hr')
+    hrContainer.appendChild(hr)
+    hrContainer.classList.add('col')
 
-    cardDiv2.appendChild(cardHr2)
-    cardDiv.appendChild(cardHr)
-    cardBody.appendChild(cardDiv)
+    const hrContainer2 = document.createElement('div')
+    const hr2 = document.createElement('hr')
+    hrContainer2.appendChild(hr2)
+    hrContainer2.classList.add('col')
+
+    const cardPriceContainer = document.createElement('div')
+    cardPriceContainer.classList.add('row')
+    const price = document.createElement('p')
+    price.classList.add('w-100')
+    price.classList.add('text-center')
+    price.textContent = '100$'
+
+    cardImgContainer.appendChild(cardImg)
+
+    cardTitleContainer.appendChild(hrContainer)
     cardTitleContainer.appendChild(cardTitle)
-    cardBody.appendChild(cardTitleContainer)
-    cardBody.appendChild(cardDiv2)
-    cardContainer.appendChild(cardImg)
-    cardContainer.appendChild(cardBody)
+    cardTitleContainer.appendChild(hrContainer2)
 
-    menuContainer.appendChild(cardContainer)
+    cardPriceContainer.appendChild(price)
+
+    cardBody.appendChild(cardTitleContainer)
+    cardBody.appendChild(cardPriceContainer)
+
+    cardFront.appendChild(cardImgContainer)
+    cardFront.appendChild(cardBody)
+
+    cardContainer.appendChild(cardFront)
+    cardContainer.appendChild(cardBack)
+
+    menuContainer.append(cardContainer)
+
+
+    
+
+    
+    // const cardContainer = document.createElement('div')
+    // cardContainer.classList.add('col-sm-12')
+    // cardContainer.classList.add('col-md-6')
+    // cardContainer.classList.add('col-lg-3')
+
+
+    // const cardImg = new Image()
+    // cardImg.classList.add('w-100')
+    // cardImg.classList.add('rounded')
+    // cardImg.classList.add('menu__card__img')
+    // cardImg.src = card.img
+
+    // const cardBody = document.createElement('div')
+    // cardBody.classList.add('row')
+
+    // const cardTitle = document.createElement('h4')
+    // cardTitle.classList.add('w-100')
+    // cardTitle.classList.add('text-center')
+    // cardTitle.textContent = card.title
+
+    // const cardTitleContainer = document.createElement('div')
+    // cardTitleContainer.classList.add('col-5')
+
+    // const cardDiv = document.createElement('div')
+    // cardDiv.classList.add('col')
+
+    // const cardDiv2 = document.createElement('div')
+    // cardDiv2.classList.add('col')
+
+    // const cardHr = document.createElement('hr')
+    // const cardHr2 = document.createElement('hr')
+
+    // cardDiv2.appendChild(cardHr2)
+    // cardDiv.appendChild(cardHr)
+    // cardBody.appendChild(cardDiv)
+    // cardTitleContainer.appendChild(cardTitle)
+    // cardBody.appendChild(cardTitleContainer)
+    // cardBody.appendChild(cardDiv2)
+    // cardContainer.appendChild(cardImg)
+    // cardContainer.appendChild(cardBody)
+
+    // menuContainer.appendChild(cardContainer)
 
 }
 
